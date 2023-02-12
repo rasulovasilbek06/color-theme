@@ -7,6 +7,7 @@ const roundWrapper = document.querySelector(".round-wrapper")
 const body = document.querySelector("body")
 const colorArray = []
 let count;
+let audio = new Audio("sound/button-click.wav");
 
 form.addEventListener("submit" , function(e){
     e.preventDefault()
@@ -30,7 +31,7 @@ prewBtn.addEventListener("click" , ()=> {
         count--
         body.style.background = colorArray[count]
         console.log(count);
-
+        audio.play();
         for (i = 0; i < roundWrapper.childNodes.length; i++) {
             roundWrapper.childNodes[i].classList.remove("round-toggle")
         }
@@ -43,9 +44,9 @@ nextBtn.addEventListener("click" , ()=> {
         count++
         body.style.background = colorArray[count]
         console.log(count);
-
         for (i = 0; i < roundWrapper.childNodes.length; i++) {
             roundWrapper.childNodes[i].classList.remove("round-toggle")
+            audio.play();
         }
         roundWrapper.childNodes[count].classList.add("round-toggle")
     }
